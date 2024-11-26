@@ -1,47 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printnbr.c                                      :+:      :+:    :+:   */
+/*   ft_printptr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbrito-s <cbrito-s>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 14:14:52 by cbrito-s          #+#    #+#             */
-/*   Updated: 2024/11/25 19:04:18 by cbrito-s         ###   ########.fr       */
+/*   Created: 2024/11/26 15:31:39 by cbrito-s          #+#    #+#             */
+/*   Updated: 2024/11/26 15:58:17 by cbrito-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printnbr(int n)
+int	ft_printptr(unsigned long num)
 {
-	unsigned int	nb;
-	int				len;
+	int	len;
 
 	len = 0;
-	if (n < 0)
-	{
-		len += ft_printchar('-');
-		nb = -n;
-	}
-	else
-		nb = n;
-	if (nb >= 10)
-		len += ft_printnbr(nb / 10);
-	nb = nb % 10 + '0';
-	len += ft_printchar(nb);
-	return (len);
-}
-
-int	ft_printunbr(unsigned int n)
-{
-	unsigned int	nb;
-	int				len;
-
-	len = 0;
-	nb = n;
-	if (nb >= 10)
-		len += ft_printnbr(nb / 10);
-	nb = nb % 10 + '0';
-	len += ft_printchar(nb);
+	if (!num)
+		return (ft_printstr("(nil)"));
+	len += ft_printstr("0x");
+	len += ft_printhex(num);
 	return (len);
 }

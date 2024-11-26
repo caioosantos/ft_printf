@@ -4,6 +4,8 @@ SRCS =	ft_printf.c \
 		ft_printchar.c \
 		ft_printstr.c \
 		ft_printnbr.c \
+		ft_printhex.c \
+		ft_printptr.c \
 		ft_printf_utils.c \
 
 OBJ = $(SRCS:.c=.o)
